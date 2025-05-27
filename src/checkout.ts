@@ -1,42 +1,10 @@
-type ProductCode = string;
-type Product = {
-  name: string;
-  price: number;
-}
+import type { Product, ProductCode } from "./inventory";
+import type { ProductCodeRules } from "./rules";
+import { PRODUCT_INVENTORY } from "./inventory";
 
 type CheckoutItem = Product & {
   quantity: number;
 }
-
-const PRODUCT_INVENTORY: Record<ProductCode, Product> = {
-  'SR1': {
-    name: 'Strawberries',
-    price: 500,
-  },
-  'FR1': {
-    name: 'Fruit Tea',
-    price: 311,
-  },
-  'CF1': {
-    name: 'Coffee',
-    price: 1123,
-  },
-};
-
-type BulkQuantityDiscountRule = {
-  name: 'bulk-quantity-discount';
-  quantity: number;
-  discountedPricePerItem: number;
-}
-
-type BuyOneGetOneFreeRule = {
-  name: 'buy-one-get-one-free';
-}
-
-type Rules = BulkQuantityDiscountRule | BuyOneGetOneFreeRule;
-
-type ProductCodeRules = Record<ProductCode, Rules[]>;
-
 
 export class Checkout {
   #items: Map<ProductCode, CheckoutItem> = new Map<ProductCode, CheckoutItem>();
