@@ -20,7 +20,7 @@ A simple checkout system in TypeScript that supports product scanning, basket ma
 
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
+   git clone git@github.com:hem-brahmbhatt/ts-checkout-system.git
    cd ts-checkout-system
    ```
 
